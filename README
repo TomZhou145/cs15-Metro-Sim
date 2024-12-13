@@ -1,0 +1,137 @@
+/**********************************************************
+* Project 1: Metro Simulator
+* CS 15
+* README
+*
+*********************************************************/
+
+Compile/run:
+     - Compile using
+            make MetroSim
+     - run executable with
+            ./MetroSim stationsFile passFile [commands]
+
+
+Program Purpose: The purpose of this program is to similate a working 
+Boston Greenline that simulates user input passengers traveling on the
+metro. 
+
+
+Acknowledgements: I have receieved helps from TAs.
+
+
+Files: 
+
+main.cpp:
+     Main file should be short and handle simple driver
+     functions such as reading in files.
+
+MetroSim.cpp:
+     Implementation of MetroSim class. Main
+     functionality of running the Metro Simulation, should be able to
+     move trains and deal with passengers going on/off the train.
+
+MetroSim.h:
+     Interface of MetroSim class. The headerfile for MetroSim class. 
+
+PassengerQueue.cpp:
+     Implementation for PassengerQueue Class
+
+PassengerQeueue.h:
+     Implementation header for PassengerQueue Class
+
+Passenger.cpp:
+     Implementation for Passenger Class
+
+Passenger.h:
+     Implementation header for Passenger Class
+
+Makefile: 
+     makefile for the whole program that compiles the whole MetroSim program, unit_test, and clean
+
+stations.txt:
+     an example file containing a list of stations.
+
+test_commands.txt:
+     sample list of commands that you could give to the simulator
+
+test_command_self.txt:
+     a short list of command for simulation
+
+the_metroSim:
+     reference implementation for students to see how 
+
+
+Note:  the program should handle all cases.
+
+Data Structures: 
+
+MetroSim is made out of multiple PassengerQueue vectors. 
+
+From top to bottom, it is made out of two vectors: Train and Station, both
+contains empty PassengerQueues as vector elements. 
+The empty PassengerQueues will be updated as the program runs. 
+Another string vector is implemented to save the station names. 
+
+PassengerQueue Class is constructed using lists of Passenger class objects
+using the std standard list library. By using the list library, the passenger
+queue class is created to be a queue data structure using the first in first
+out principle. 
+
+The passenger class is made up of fundementally three intergers that 
+represents: 
+     1. the passenger id
+     2. the index of the station the passenger gets on
+     3. the index of the station the passenger gets off 
+
+
+Testing:
+
+Here describe the following: process of testing (unit tests), mention
+of bugs you encountered while testing, mention of testing on inputs of
+different sizes and edge cases, good description of base cases you
+considered while testing. Demonstrate a methodical approach to
+testing.  This section of your REAMDE should be very thorough for
+assignments.
+
+I used unit_test for PassengerQueue and Passenger class. I tested for 
+cases for empty, one, or multiple Passenger Class object in PassengerQueue. 
+I didn't use a lot of unit test, I use single functions and run through
+a lot of different test and functions through one unit_test function for 
+efficiency. 
+
+After testing the edge cases I can now implement the working little pieces
+to build the whole implementation of MetroSim.
+From now on I used a lot of different print statements (that are now deleted
+for cleaner organization) to test whether every single function is 
+implemeneted at the correct spot at everypoint of the program. 
+
+I worked out the cout simulation print first by just matching the formatting 
+from the_MetroSim and the guide. I tried to match the best I can according
+to the formatting of the_MetroSim. And when the full program is implemented
+I used the diff test to check for formatting and correct output. 
+
+Whenever there are output that does not match expectation, I always print
+out all the varabiables during the program to analyze and then to decided 
+how to fix it. Then when it is fixed, the print statements are commented out
+and cleared in the end. 
+
+In the end, I ran valgrind to make sure there are no memory leaks, and
+checked diff for both cout and the simout vs simsout. 
+
+
+Part that you found most difficult:
+The most difficult part for me was the implementation of m m, 
+
+It took me awhile to figure out how to implment the correct operation order,
+which is in detail: 
+when m m is called -> add the passenger BEFORE the train moves -> then update
+the round and simulate the train move to the next station -> drop off 
+the passenger. 
+
+Another hard thing is to realize that what is printed is different
+from what the system is under the hood. 
+
+
+
+Time Spent: 30 hours
